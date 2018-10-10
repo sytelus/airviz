@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "airviz", "airviz.pyproj", "{0F589F2E-5757-45C2-BCF4-7333FFC066A5}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "test", "test\test.pyproj", "{9A7FE67E-93F0-42B5-B58F-77320FC639E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F589F2E-5757-45C2-BCF4-7333FFC066A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F589F2E-5757-45C2-BCF4-7333FFC066A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7FE67E-93F0-42B5-B58F-77320FC639E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7FE67E-93F0-42B5-B58F-77320FC639E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2E4D2FA-3617-4A70-B8BA-6550B6836077}
+	EndGlobalSection
+EndGlobal
