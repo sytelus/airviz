@@ -23,22 +23,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="client.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="rpc_server.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="server.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="zmq_client.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="zmq_pub_sub.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="zmq_server.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="__init__.py" />
