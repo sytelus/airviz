@@ -23,6 +23,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="probe.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="watch.py" />
     <Compile Include="zmq_pub_sub.py">
       <SubType>Code</SubType>
     </Compile>
