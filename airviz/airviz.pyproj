@@ -26,6 +26,7 @@
     <Compile Include="probe.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="utils.py" />
     <Compile Include="watch.py" />
     <Compile Include="zmq_pub_sub.py">
       <SubType>Code</SubType>
