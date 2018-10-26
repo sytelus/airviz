@@ -2,6 +2,7 @@ import zmq
 import pickle
 from zmq.eventloop import ioloop, zmqstream
 import functools
+import threading
 
 class ZmqPubSub:
     @staticmethod
@@ -44,6 +45,19 @@ class ZmqPubSub:
             if topic != self.topic:
                 raise ValueError("Expected topic: %s, Received topic: %s" % (topic, self.topic)) 
             return pickle.loads(obj_s)
+
+    class SubscriptionManager:
+        def __init__(self, port = None):
+            self._port = port
+            self._thread = threading.Thread(target=self._run_subs, daemon=True)
+            self._thread.start()
+
+        def _run_subs(self):
+            ZmqPubSub.run_forever()
+
+        def add_sub(self, callback, topic="", port=None):
+            ioloop.IOLoop.current().add_callback( \
+                lambda : ZmqPubSub.Subscription(port or self._port, topic=topic, callback=callback))
 
     class ClientServer:
         def __init__(self, port, is_server, callback=None, host=None):

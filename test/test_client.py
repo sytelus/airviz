@@ -16,15 +16,11 @@ def sub_recvd_srv2_ch1(obj):
     print(obj)
 
 
-def run_subs():
-    cli1 = airviz.ZmqPubSub.Subscription(12333, topic = "ch1", callback=sub_recvd_srv1_ch1)
-    cli2 = airviz.ZmqPubSub.Subscription(12333, topic = "ch2", callback=sub_recvd_srv1_ch2)
-    cli3 = airviz.ZmqPubSub.Subscription(12334, topic = "ch1", callback=sub_recvd_srv2_ch1)
+mgr = airviz.ZmqPubSub.SubscriptionManager(12333)
+mgr.add_sub(sub_recvd_srv1_ch1, "ch1")
+mgr.add_sub(sub_recvd_srv1_ch2, "ch2")
+mgr.add_sub(sub_recvd_srv2_ch1, "ch1", port=12334)
 
-    airviz.ZmqPubSub.run_forever()
-
-th = threading.Thread(target=run_subs, daemon=True)
-th.start()
 
 cli_ser1 = airviz.ZmqPubSub.ClientServer(12332, False)
 for i in range(0, 1000):
