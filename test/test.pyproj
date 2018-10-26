@@ -26,7 +26,13 @@
     <Compile Include="test_client.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="test_probe.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="test_server.py" />
+    <Compile Include="test_watch.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="thread_test.py">
       <SubType>Code</SubType>
     </Compile>

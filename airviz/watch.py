@@ -8,11 +8,11 @@ class Watch:
             self.stream_name = stream_name
 
     def __init__(self, port = 40859):
-        self._server = ZmqPubSub()
-        self._server.start_pub(port)
+        self._port = port
         self._vars = {}
         self._event_counts = {}
         self._streams = {}
+        self._publication = ZmqPubSub.Publication(port = self._port)
 
     def register(self, var_name, var_value):
         self._vars[var_name] = var_value
@@ -25,7 +25,6 @@ class Watch:
         event_streams = self._streams.get(event_name, {})
         for stream_name, s in event_streams:
             val = eval(s.expression, self._vars)
-            self._server.send((val, self._event_counts[event_name]), stream_name)
 
     def stream(self, expression, event_name, stream_name):
         s = Watch.Stream(expression, event_name, stream_name)
@@ -34,3 +33,6 @@ class Watch:
     def destream(self, event_name, stream_name):
         event_streams = self._streams.get(s.event_name, {})
         event_streams.pop(stream_name, None)
+
+    def send_text(self, text, topic=""):
+        self._publication.send_obj(text, topic)
