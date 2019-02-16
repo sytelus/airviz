@@ -13,8 +13,8 @@ def setup_clisrv():
 srv1 = airviz.ZmqPubSub.Publication(12333)
 srv2 = airviz.ZmqPubSub.Publication(12334)
 
-th = threading.Thread(target=setup_clisrv, daemon=True)
-th.start()
+#th = threading.Thread(target=setup_clisrv, daemon=True)
+#th.start()
 
 for i in range(10000):
     srv1.send_obj((i, i*i), "ch1")
